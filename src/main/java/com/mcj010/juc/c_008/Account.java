@@ -1,3 +1,11 @@
+/**
+ * 面试题：模拟银行账户
+ * 对业务写方法加锁
+ * 对业务读方法不加锁
+ * 这样行不行？
+ *
+ * 容易产生脏读问题（dirtyRead）
+ */
 package com.mcj010.juc.c_008;
 
 import java.util.concurrent.TimeUnit;
@@ -19,7 +27,7 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public synchronized double getBalance(String name) {
+	public /*synchronized*/ double getBalance(String name) {
 		System.out.print(name + " ");
 		return this.balance;
 	}
