@@ -21,7 +21,9 @@ public class T05_ReentrantLock5 extends Thread {
 		T05_ReentrantLock5 rl = new T05_ReentrantLock5();
 		Thread th1 = new Thread(rl);
 		Thread th2 = new Thread(rl);
+		Thread th3 = new Thread(rl);
 		th1.start();
 		th2.start();
+		th3.start();
 	}
 }
