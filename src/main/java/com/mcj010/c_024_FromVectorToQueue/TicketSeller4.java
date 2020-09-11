@@ -4,7 +4,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class TicketSeller4 {
-    static Queue<String> tickets = new ConcurrentLinkedQueue<>();
+    static Queue<String> tickets = new ConcurrentLinkedQueue<>();//CAS操作
 
     static {
         for (int i = 0; i < 1000; i++) {
