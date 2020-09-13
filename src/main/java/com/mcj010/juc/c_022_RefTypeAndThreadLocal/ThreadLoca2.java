@@ -7,6 +7,12 @@ public class ThreadLoca2 {
 	static ThreadLocal<Person> tl = new ThreadLocal<Person>();
 
 	class Person {
+
+		Person(String name){
+			this.name = name;
+		}
+
+		Person(){}
 		String name = "zhangsan";
 	}
 
@@ -30,7 +36,10 @@ public class ThreadLoca2 {
 			}
 
 			tl.set(new ThreadLoca2().new Person());
-			//System.out.println(tl.get());
+			System.out.println(tl.get().name);
+
+			tl.set(new ThreadLoca2().new Person("李四"));
+			System.out.println(tl.get().name);
 		}).start();
 
 	}
