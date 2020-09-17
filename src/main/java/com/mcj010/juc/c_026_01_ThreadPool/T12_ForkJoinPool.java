@@ -88,5 +88,7 @@ public class T12_ForkJoinPool {
         long result = task.join();
         System.out.println(result);
 
+        System.out.println(Runtime.getRuntime().availableProcessors());
+
     }
 }
