@@ -2,6 +2,7 @@ package com.mcj010.mashibingDisruptor;
 
 import com.lmax.disruptor.EventTranslator;
 import com.lmax.disruptor.EventTranslatorOneArg;
+import com.lmax.disruptor.EventTranslatorTwoArg;
 import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.util.DaemonThreadFactory;
@@ -37,5 +38,14 @@ public class Main02 {
         };
 
         ringBuffer.publishEvent(translator2, 7777L);
+
+        EventTranslatorTwoArg<LongEvent, Long, Long> translator3 = new EventTranslatorTwoArg<LongEvent, Long, Long>() {
+            @Override
+            public void translateTo(LongEvent event, long sequence, Long l1, Long l2) {
+                event.set(l1 + l2);
+            }
+        };
+
+        ringBuffer.publishEvent(translator3, 10000L, 10000L);
     }
 }
